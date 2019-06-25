@@ -1,7 +1,8 @@
 import { Client, Guild, Message } from "./disco";
 type Args = Array<string>;
 
-function Bot() {
+function Bot(client: Client) {
+    this.client = client;
     this.commands = {};
     this.prefix = "/";
     this.env = {
@@ -12,7 +13,7 @@ function Bot() {
 /**
  * Callback function if the bot is ready.
  */
-Bot.prototype.ready = (client: Client) => {};
+Bot.prototype.ready = () => {};
 
 /**
  * When the bot joins a guild/server.
