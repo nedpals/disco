@@ -4,10 +4,10 @@ import { Client } from "discord.js";
 
 export default ({ args }) => {
     const env = dotenv.config();
-    const client = new Client();
+    const client: Client = new Client();
 
     // Searches for the main disco file.
-    const bot = new (require(path.resolve(process.cwd(), args[0])))();
+    const bot = new (require(path.resolve(process.cwd(), args[0])))(client);
     
     // Checks .env file.
 
