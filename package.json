@@ -1,0 +1,22 @@
+{
+  "name": "disco",
+  "version": "1.0.0",
+  "main": "./dist/disco.js",
+  "license": "MIT",
+  "bin": "./bin/disco.js",
+  "types": "./dist/types/disco.d.ts",
+  "scripts": {
+    "watch": "tsc --watch --project ./tsconfig.json"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "kuman": "0.0.6-1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^12.0.2",
+    "typescript": "^3.4.5"
+  }
+}
