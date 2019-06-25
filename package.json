@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "./dist/disco.js",
   "license": "MIT",
-  "bin": "./bin/disco.cli.js",
+  "bin": {
+    "disco": "./bin/disco.cli.js"
+  },
   "types": "./dist/disco.d.ts",
   "scripts": {
     "watch": "tsc --watch --project ./tsconfig.json"

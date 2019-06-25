@@ -1,6 +1,6 @@
 <h1 align="center">Disco</h1>
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
   </a>
@@ -13,10 +13,10 @@
 
 ### 🏠 [Homepage](https://nedpals.github.io/disco)
 
-## Install
+## Install globally
 
 ```sh
-npm install -g disco-cli
+npm install -g disco-js
 ```
 
 ## Usage

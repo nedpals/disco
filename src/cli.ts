@@ -5,7 +5,7 @@ const cli = CLI();
 const app = {
     name: "Disco",
     description: "Create Discord bots fast.",
-    version: "0.1.0" 
+    version: "1.0.0" 
 };
 
 cli.on("showVersion", () => console.log(app.version));
