@@ -13,17 +13,51 @@
 
 ### 🏠 [Homepage](https://nedpals.github.io/disco)
 
-## Install globally
+## Install
 
 ```sh
-npm install -g disco-js
+npm install disco-js
 ```
 
 ## Usage
 
+1. Create a Discord bot file.
 ```javascript
+// HelloWorldBot.js
+const Disco = require("disco-js");
 
+class HelloWorld extends Disco.Bot {
+  ready() {
+    console.log("Hello world bot is ready!");
+
+    client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  }
+
+  hello(message, args) {
+    // The user will send "/hello James" to the server.
+    // And the bot, in return, will send "Hello, James!" back to the server. 
+    message.channel.send(`Hello, ${args[0]}!`);
+  }
+
+  commands = {
+    'hello': this.hello
+  }
+}
+
+module.exports = HelloWorld;
 ```
+
+2. Create an `.env` file for storing sensitive credentials.
+```env
+DISCORD_TOKEN=<DISCORD TOKEN HERE>
+```
+
+3. Install and run the bot.
+```bash
+  ./node_modules/.bin/disco run ./HelloWorldBot.js
+```
+
+4. The bot will start.
 
 ## Author
 
