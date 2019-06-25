@@ -7,7 +7,7 @@ exports.default = ({ args }) => {
     const env = dotenv.config();
     const client = new discord_js_1.Client();
     // Searches for the main disco file.
-    const bot = new (require(path.resolve(process.cwd(), args[0])))();
+    const bot = new (require(path.resolve(process.cwd(), args[0])))(client);
     // Checks .env file.
     if (env.error) {
         throw env.error;

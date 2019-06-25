@@ -4,7 +4,8 @@ const disco_1 = require("./disco");
 exports.Client = disco_1.Client;
 exports.Guild = disco_1.Guild;
 exports.Message = disco_1.Message;
-function Bot() {
+function Bot(client) {
+    this.client = client;
     this.commands = {};
     this.prefix = "/";
     this.env = {
@@ -14,7 +15,7 @@ function Bot() {
 /**
  * Callback function if the bot is ready.
  */
-Bot.prototype.ready = (client) => { };
+Bot.prototype.ready = () => { };
 /**
  * When the bot joins a guild/server.
  */
