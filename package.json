@@ -1,5 +1,5 @@
 {
-  "name": "disco-js",
+  "name": "@nedpals/disco-js",
   "version": "1.0.0",
   "main": "./dist/disco.js",
   "license": "MIT",

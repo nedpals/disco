@@ -16,7 +16,7 @@
 ## Install
 
 ```sh
-npm install disco-js
+npm install @nedpals/disco-js
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ npm install disco-js
 1. Create a Discord bot file.
 ```javascript
 // HelloWorldBot.js
-const Disco = require("disco-js");
+const Disco = require("@nedpals/disco-js");
 
 class HelloWorld extends Disco.Bot {
   ready() {
