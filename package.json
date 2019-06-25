@@ -1,5 +1,5 @@
 {
-  "name": "disco",
+  "name": "disco-js",
   "version": "1.0.0",
   "main": "./dist/disco.js",
   "license": "MIT",
@@ -8,7 +8,9 @@
   },
   "types": "./dist/disco.d.ts",
   "scripts": {
-    "watch": "tsc --watch --project ./tsconfig.json"
+    "watch": "tsc --watch --project ./tsconfig.json",
+    "build": "tsc --project ./tsconfig.json",
+    "prepublish": "npm build"
   },
   "dependencies": {
     "discord.js": "^11.5.0",
@@ -20,5 +22,12 @@
     "@types/dotenv": "^6.1.1",
     "@types/node": "^12.0.2",
     "typescript": "^3.4.5"
-  }
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "cli",
+    "command-line",
+    "discord.js"
+  ]
 }
