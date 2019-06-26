@@ -1,38 +1,57 @@
 import { Client, Guild, Message } from "discord.js";
+
 type Args = Array<string>;
+
+interface EnvFieldOptions {
+    token: string
+}
 
 /**
  * @constructor
  * @param client Discord client.
  */
-function Bot(client: Client) {
-    this.client = client;
-    this.commands = {};
-    this.prefix = "/";
-    this.env = {
+class Bot {
+    constructor(client: Client) {
+        this.client = client;
+    }
+
+    /**
+     * Bot's client.
+     */
+    client: Client;
+
+    /**
+     * Prefix used to activate the bot.
+     */
+    prefix: string = "+";
+
+    /**
+     * Environemnt options.
+     */
+    env: EnvFieldOptions = {
         token: "DISCORD_TOKEN"
-    };
+    }
+    
+    /**
+     * Callback function if the bot is ready.
+     */
+    ready() {};
+
+    /**
+     * When the bot joins a guild/server.
+     */
+    onJoinedGuild(guild: Guild) {};
+
+    /**
+     * When the bot leaves the guild/server.
+     */
+    onLeaveGuild(guild: Guild) {};
+
+    /**
+     * Displays message to the server.
+     */
+    message(message: Message, args: Args) {};
 }
-
-/**
- * Callback function if the bot is ready.
- */
-Bot.prototype.ready = () => {};
-
-/**
- * When the bot joins a guild/server.
- */
-Bot.prototype.onJoinedGuild = (guild: Guild) => {};
-
-/**
- * When the bot leaves the guild/server.
- */
-Bot.prototype.onLeaveGuild = (guild: Guild) => {};
-
-/**
- * Displays message to the server.
- */
-Bot.prototype.message = (message: Message, args: Args) => {};
 
 export default Bot;
 export {
