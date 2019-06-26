@@ -1,2 +1,4 @@
 import { Client, Guild, Message } from "discord.js";
-export { Client, Guild, Message };
+import Bot from "./bot";
+import Embed from "./rich-embed";
+export { Bot, Embed, Client, Guild, Message };
