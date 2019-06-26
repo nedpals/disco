@@ -1,6 +1,10 @@
-import { Client, Guild, Message } from "./disco";
+import { Client, Guild, Message } from "discord.js";
 type Args = Array<string>;
 
+/**
+ * @constructor
+ * @param client Discord client.
+ */
 function Bot(client: Client) {
     this.client = client;
     this.commands = {};
@@ -28,7 +32,7 @@ Bot.prototype.onLeaveGuild = (guild: Guild) => {};
 /**
  * Displays message to the server.
  */
-Bot.prototype.render = (message: Message, args: Args) => {};
+Bot.prototype.message = (message: Message, args: Args) => {};
 
 export default Bot;
 export {
