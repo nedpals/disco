@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "main": "./dist/disco.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nedpals/disco.git"
+  },
   "bin": {
     "disco": "./bin/disco.cli.js"
   },

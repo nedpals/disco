@@ -21,16 +21,23 @@ npm install @nedpals/disco-js
 
 ## Usage
 
-1. Create a Discord bot file.
+Create a Discord bot file.
 ```javascript
 // HelloWorldBot.js
 const Disco = require("@nedpals/disco-js");
 
 class HelloWorld extends Disco.Bot {
+  constructor(client) {
+    super(client);
+
+    this.commands = {
+      'hello': this.hello
+    };
+  }
+
   ready() {
     console.log("Hello world bot is ready!");
-
-    client.user.setActivity(`Serving ${client.guilds.size} servers`);
+    this.client.user.setActivity(`Serving ${client.guilds.size} servers`);
   }
 
   hello(message, args) {
@@ -38,26 +45,26 @@ class HelloWorld extends Disco.Bot {
     // And the bot, in return, will send "Hello, James!" back to the server. 
     message.channel.send(`Hello, ${args[0]}!`);
   }
-
-  commands = {
-    'hello': this.hello
-  }
 }
 
 module.exports = HelloWorld;
 ```
 
-2. Create an `.env` file for storing sensitive credentials.
+Create an `.env` file for storing sensitive credentials such as `.
 ```env
 DISCORD_TOKEN=<DISCORD TOKEN HERE>
 ```
 
-3. Install and run the bot.
+Install and run the bot.
 ```bash
   ./node_modules/.bin/disco run ./HelloWorldBot.js
 ```
 
-4. The bot will start.
+The bot will start.
+```bash
+Bot is starting...
+Hello World! # It triggers the "ready" event.
+```
 
 ## Author
 
