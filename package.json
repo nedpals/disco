@@ -6,7 +6,8 @@
   "bin": {
     "disco": "./bin/disco.cli.js"
   },
-  "types": "./dist/disco.d.ts",
+  "types": "./dist/typings/disco.d.ts",
+  "preferGlobal": false,
   "scripts": {
     "watch": "tsc --watch --project ./tsconfig.json",
     "build": "tsc --project ./tsconfig.json",
