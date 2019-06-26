@@ -1,7 +1,7 @@
 import * as path from "path";
 
 export function getAppInfo(key: string) {
-    const packageJson = require(path.resolve(__dirname, "../package.json"));
+    const packageJson = require(path.resolve(__dirname, "../../package.json"));
 
     return packageJson[key];
 }
