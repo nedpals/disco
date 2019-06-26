@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const discord_js_1 = require("discord.js");
-exports.Client = discord_js_1.Client;
-exports.Guild = discord_js_1.Guild;
-exports.Message = discord_js_1.Message;
-const bot_1 = require("./bot");
+const bot_1 = require("./src/bot");
 exports.Bot = bot_1.default;
-const rich_embed_1 = require("./rich-embed");
-exports.Embed = rich_embed_1.default;
+exports.Client = bot_1.Client;
+exports.Guild = bot_1.Guild;
+exports.Message = bot_1.Message;
+const discord_js_1 = require("discord.js");
+exports.RichEmbed = discord_js_1.RichEmbed;
