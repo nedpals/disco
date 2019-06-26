@@ -1,13 +1,15 @@
 {
     "compilerOptions": {
         "target": "es6",
+        "lib": ["es6"],
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
+        "declarationDir": "./dist/typings",
         "outDir": "./dist",
     },
     "include": [
-        "src/**/*"
+        "src/**/*", "disco.ts"
     ],
     "exclude": [
         "node_modules"
