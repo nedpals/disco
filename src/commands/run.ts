@@ -3,11 +3,12 @@ import * as dotenv from "dotenv";
 import { Client } from "discord.js";
 
 export default ({ args }) => {
-    const env = dotenv.config();
+    const botFile = require(path.resolve(process.cwd(), args[0]));
+    const env: dotenv.DotenvConfigOutput = dotenv.config();
     const client: Client = new Client();
 
     // Searches for the main disco file.
-    const bot = new (require(path.resolve(process.cwd(), args[0])))(client);
+    const bot = new botFile(client);
     
     // Checks .env file.
 
@@ -15,10 +16,12 @@ export default ({ args }) => {
         throw env.error;
     }
 
+    console.log("Bot is starting...")
+
     client
         .on("ready", () => bot.ready(client))
-        .on("guildCreate", (guild) => bot.onJoinedGuild(guild))
-        .on("guildDelete", (guild) => bot.onLeaveGuild(guild))
+        .on("guildCreate", bot.onJoinedGuild)
+        .on("guildDelete", bot.onLeaveGuild)
         .on("message", (message) => {
             const botCommands = Object.keys(bot.commands);
             const args = message.content.slice(bot.prefix.length).trim().split(/ +/g);
@@ -39,4 +42,9 @@ export default ({ args }) => {
 
     // Runs the discord file.
     client.login(process.env[bot.env.token]);
+
+    process.on("SIGINT", () => {
+        console.log("Bot has shut down.");
+        process.exit(0);
+    });
 }
