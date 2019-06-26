@@ -10,16 +10,12 @@ const app = {
     version: getAppInfo("version")
 };
 
-cli.on("showVersion", () => console.log(app.version));
+cli.on("showVersion", checkCommand);
 cli.on("showHelp", () => console.log(`${app.name}\n${app.description}`));
 
 cli.command("run", runCommand, {
     arguments: 1,
     description: "Runs the Discord bot."
-});
-
-cli.command("check", checkCommand, {
-    description: "Prints Disco version and system info. Also checks .env file."
 });
 
 module.exports = cli;
