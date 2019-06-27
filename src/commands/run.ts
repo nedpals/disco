@@ -41,7 +41,13 @@ export default ({ args }) => {
             if (botCommands.length === 0) {
                 bot.message(message);
             } else {
-                bot.commands[botCommands.find(c => c === command)](message, args);
+                let selectedCommand = botCommands.find(c => c === command);
+
+                if (typeof selectedCommand !== "undefined") {
+                    bot.commands[selectedCommand](message, args);
+                } else {
+                    message.channel.send("Command not found.")
+                }
             }
         });
 
