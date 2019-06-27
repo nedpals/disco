@@ -8,28 +8,39 @@ exports.Message = discord_js_1.Message;
  * @constructor
  * @param client Discord client.
  */
-function Bot(client) {
-    this.client = client;
-    this.commands = {};
-    this.prefix = "/";
-    this.env = {
-        token: "DISCORD_TOKEN"
-    };
+class Bot {
+    constructor(client) {
+        /**
+         * Prefix used to activate the bot.
+         */
+        this.prefix = "+";
+        /**
+         * Environemnt options.
+         */
+        this.env = {
+            token: "DISCORD_TOKEN"
+        };
+        this.client = client;
+    }
+    /**
+     * Callback function if the bot is ready.
+     */
+    ready() { }
+    ;
+    /**
+     * When the bot joins a guild/server.
+     */
+    onJoinedGuild(guild) { }
+    ;
+    /**
+     * When the bot leaves the guild/server.
+     */
+    onLeaveGuild(guild) { }
+    ;
+    /**
+     * Displays message to the server.
+     */
+    message(message, args) { }
+    ;
 }
-/**
- * Callback function if the bot is ready.
- */
-Bot.prototype.ready = () => { };
-/**
- * When the bot joins a guild/server.
- */
-Bot.prototype.onJoinedGuild = (guild) => { };
-/**
- * When the bot leaves the guild/server.
- */
-Bot.prototype.onLeaveGuild = (guild) => { };
-/**
- * Displays message to the server.
- */
-Bot.prototype.message = (message, args) => { };
 exports.default = Bot;

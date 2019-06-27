@@ -4,14 +4,18 @@ const path = require("path");
 const dotenv = require("dotenv");
 const discord_js_1 = require("discord.js");
 exports.default = ({ args }) => {
+    let env;
+    // Import bot file from args.
     const botFile = require(path.resolve(process.cwd(), args[0]));
-    const env = dotenv.config();
     const client = new discord_js_1.Client();
     // Searches for the main disco file.
     const bot = new botFile(client);
     // Checks .env file.
-    if (env.error) {
-        throw env.error;
+    if (process.env.NODE_ENV === "development") {
+        env = dotenv.config();
+        if (env.error) {
+            throw env.error;
+        }
     }
     console.log("Bot is starting...");
     client
@@ -32,7 +36,13 @@ exports.default = ({ args }) => {
             bot.message(message);
         }
         else {
-            bot.commands[botCommands.find(c => c === command)](message, args);
+            let selectedCommand = botCommands.find(c => c === command);
+            if (typeof selectedCommand !== "undefined") {
+                bot.commands[selectedCommand](message, args);
+            }
+            else {
+                message.channel.send("Command not found.");
+            }
         }
     });
     // Runs the discord file.
