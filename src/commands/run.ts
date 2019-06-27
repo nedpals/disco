@@ -3,17 +3,22 @@ import * as dotenv from "dotenv";
 import { Client } from "discord.js";
 
 export default ({ args }) => {
+    let env: dotenv.DotenvConfigOutput;
+    
+    // Import bot file from args.
     const botFile = require(path.resolve(process.cwd(), args[0]));
-    const env: dotenv.DotenvConfigOutput = dotenv.config();
     const client: Client = new Client();
 
     // Searches for the main disco file.
     const bot = new botFile(client);
     
     // Checks .env file.
+    if (process.env.NODE_ENV === "development") {
+        env = dotenv.config();
 
-    if (env.error) {
-        throw env.error;
+        if (env.error) {
+            throw env.error;
+        }
     }
 
     console.log("Bot is starting...")
