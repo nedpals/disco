@@ -20,7 +20,7 @@
   "dependencies": {
     "discord.js": "^11.5.0",
     "dotenv": "^8.0.0",
-    "express": "^4.17.0",
+    "express": "^4.17.3",
     "kuman": "0.0.6-1"
   },
   "devDependencies": {
